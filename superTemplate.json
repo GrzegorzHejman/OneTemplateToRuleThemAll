@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "parameter": {
+      "type": "Object"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2022-09-01",
+      "name": "nestedTemplate",
+      "location": "westus",
+      "properties": {
+        "mode": "Incremental",
+        "template": "[parameters('parameter')]"
+      }
+    }
+  ]
+}
